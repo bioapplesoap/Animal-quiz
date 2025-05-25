@@ -108,12 +108,17 @@
         }
 
         function displayResult() {
-            let bestMatch = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
-            document.getElementById("question-container").style.display = "none";
-            document.getElementById("result").innerText = `🎉 Your personality is most like: ${bestMatch}!`;
-        }
+            let bestMatch = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+            document.getElementById("question-container").style.display = "none";
+            document.getElementById("result").innerText = `🎉 Your personality is most like: ${bestMatch}!`; 
 
-        updateQuestion();
+            if (animalImages[bestMatch]) {
+                document.getElementById("animal-image").src = animalImages[bestMatch];
+                document.getElementById("animal-image").style.display = "block";
+            }
+        } 
+
+        updateQuestion();
     </script>
 
 </body>
